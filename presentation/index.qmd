@@ -1,0 +1,622 @@
+---
+title: "Text Mining: Topic Modeling for Librarians"
+author:
+  - Dr. Manika Lamba
+institute: |
+      | Assistant Professor
+      | School of Library & Information Studies
+      | University of Oklahoma, USA
+      | 
+      | IIM Bangaluru
+      | 26 August 2024
+
+chalkboard: # press the B key to toggle chalkboard
+  theme: whiteboard
+format: 
+  revealjs:
+    multiplex: true
+    theme: ["pp.scss"]
+    slide-number: c/t
+    incremental: false
+    title-slide-attributes:
+      data-background-image: img/cover.jpeg
+      data-background-size: cover  
+editor: visual
+---
+
+## ToC
+
+1.  Little Bit about Me
+2.  How to Organize Data in Today's World Using Machines
+3.  Topic Modeling & STM Algorithm
+4.  Application of Topic Modeling in Libraries
+5.  Topic Modeling Demo in R
+6.  Coconut LibTool + Demo
+
+## About Me
+
+![](img/about-me.png){width="70%"}
+
+::: footer
+<https://manika-lamba.github.io/>
+:::
+
+## Norman, Oklahoma
+
+![](img/intro.png){width="70%"}
+
+## My Department
+
+![](img/intro2.png){width="70%"}
+
+::: footer
+<https://www.ou.edu/cas/slis/>
+:::
+
+# How to Organize Data in Today's World Using Machines {background-color="#F7D9C4"}
+
+::: footer
+:::
+
+# Data
+
+::: {#fig-data layout-nrow="2"}
+![](img/data.png){fig-align="center" width="45%"} ![](img/data2.jpg){fig-align="center" width="45%"}
+
+World's Technological Capacity to Store, Communicate, and Compute Information
+:::
+
+::: footer
+[Hilbert, M., & López, P. (2011). The World's Technological Capacity to Store, Communicate, and Compute Information. Science, 332(6025), 60 --65. doi:10.1126/science.1200970](https://www.science.org/doi/10.1126/science.1200970)
+:::
+
+# Digital Trace Data
+
+::: columns
+::: {.column width="50%"}
+-   Past decade has witnessed an increasingly voluminous amount of digital data that is produced on the internet which describes human behavior and other objects of scholarly inquiry
+
+-   Recent decades have not only witnessed an increase in the amount of text-based data but also increased computing power which is increasingly necessary to analyze it
+
+-   Together, these two shifts hold the potential to significantly expand the scope of research in many different fields
+:::
+
+::: {.column width="50%"}
+![](img/dtd.png){fig-align="center"}
+:::
+:::
+
+::: footer
+[The World's Technological Capacity to Store, Communicate, and Compute Information](https://www.science.org/doi/10.1126/science.1200970)
+:::
+
+## What to Read Next?
+
+*`How to Make an Effective Recommendation System?`*
+
+![](img/asda.png){fig-align="center"}
+
+::: notes
+-   Databases have tons of tons of content
+-   To keep readers engaged - should provide readers ways to navigate in all this huge pile of digital catalogs of books, journals, theses
+:::
+
+# Finding Related Material
+
+![](img/1.1.png){fig-align="center"}
+
+::: footer
+:::
+
+# Human vs Machine
+
+![](img/2.png){fig-align="center"}
+
+# How Do Machines Learn?
+
+![](img/3.png){fig-align="center"}
+
+::: footer
+:::
+
+# Making the Machine Understand
+
+*`Machines perform much better that too at Scale & Speed!`*
+
+![](img/4.png){fig-align="center"}
+
+::: footer
+:::
+
+# Machine Learning Model
+
+![](img/5.png){fig-align="center"}
+
+::: footer
+:::
+
+# Topic Modeling & STM Algorithm {background-color="#F7D9C4"}
+
+::: footer
+:::
+
+## Definition
+
+::: incremental
+::: incremental
+***Topic***
+
+-   It is "a recurring pattern of co-occurring words" [(Brett, 2012)](https://journalofdigitalhumanities.org/2-1/topic-modeling-a-basic-introduction-by-megan-r-brett/)
+-   A topic can be defined as the main idea discussed in a text, i.e., the theme or subject of different granularity
+-   Topics are simply groups of words from the collection of documents that represents the information in the collection in the best way
+:::
+
+***Topic Modeling***
+
+-   It is "a method for finding and tracing clusters of words (called *topics*) in large bodies of texts" [(Brett, 2012)](https://journalofdigitalhumanities.org/2-1/topic-modeling-a-basic-introduction-by-megan-r-brett/)
+-   It is a text mining approach to understand, organize, process, extract, manage, and summarize knowledge
+:::
+
+::: footer
+:::
+
+## Introduction
+
+::: incremental
+-   It performs *soft clustering*, where it presumes that every document is composed of a mixture of topics
+-   It makes an excellent tool for discovery and helps to uncover evidence already present in the text
+-   It has been called an act of reading tea leaves (Chang et al., 2009) or the process of highlighting words (Brett, 2012) based on their topics
+-   It is based on statistical and machine learning techniques to mine meaningful information from a vast corpus of unstructured data and is used to mine document's content
+-   A subject expert (human-in-loop) is needed to label the topics
+:::
+
+::: footer
+:::
+
+## Some Important Concepts
+
+::: panel-tabset
+## Bags of Words
+
+![](img/11.jpg){fig-align="center" width="65%"}
+
+::: footer
+:::
+
+## TDM
+
+::: columns
+::: {.column width="65%"}
+![](img/8.jpg){fig-align="center"}
+:::
+
+::: {.column width="35%"}
+-   It represents terms as a table or matrix of numbers for a given corpus
+-   In TDM, terms are represented as rows and documents as columns for a corpus where the number of occurrences of terms in the document is entered in the boxes
+:::
+:::
+
+::: footer
+:::
+
+## DTM
+
+::: columns
+::: {.column width="65%"}
+![](img/9.jpg){fig-align="center"}
+:::
+
+::: {.column width="35%"}
+-   It represents terms as a table or matrix of numbers for a given corpus
+-   It is a transposition of TDM
+-   In DTM, each document is a row, and each word is the column
+:::
+:::
+
+::: footer
+:::
+
+## TF-IDF
+
+::: columns
+::: {.column width="65%"}
+![](img/10.jpg){fig-align="center"}
+
+It evaluates the relevancy of a term for a document in a corpus and is the most popular weighting scheme in information retrieval (IR)
+:::
+
+::: {.column width="35%"}
+-   The term **weighting** is popularly used in IR and supervised machine learning tasks like text classification
+-   It makes a list of more discriminative terms than others and assigns a weight to each highly occurring term
+:::
+:::
+:::
+
+::: footer
+:::
+
+## What Happens in Topic Modeling?
+
+![](img/background.jpeg){fig-align="center" width="65%"}
+
+-   It infers abstract topics based on "similar patterns of word usage in each document"
+-   These topics are simply groups of words from the collection of documents that represents the information in the collection in the best way
+
+::: footer
+:::
+
+## How Topic Modeling Works?
+
+::: columns
+::: {.column width="50%"}
+![](img/works2.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+![](img/works3.png){fig-align="center"}
+:::
+:::
+
+::: footer
+:::
+
+## Topic Analysis + Time
+
+-   It assists in identifying topics within a context and how they advance in time
+-   For instance, over time, few documents within a topic may initiate content that varies from the original content; if that initiated content is shared by a lot of later documents, the content is recognized as a new topic
+-   Hence, with the progression of time, topics advance, new themes emerge, and old ones become obsolete
+-   So, topic modeling not just helps the librarians to decide the trending topics or related fields to their field of intrigue but additionally encourages them to distinguish new concepts and fields over time
+
+::: footer
+:::
+
+## How to DO Topic Modeling?
+
+::: incremental
+1.  Extract/Retrieve dataset (e.g. webscraping, API, etc.)
+2.  Preparing a corpus (such as converting files from PDF to plain text format)
+3.  Conducting text pre-processing (removing stopwords, tokenization, stemming, n-grams)
+4.  Exploratory analysis (Word clouds, clustering)\
+5.  Determining the number of topics (using perplexity, coherence, entropy, or eye-ball method)
+6.  Selecting the appropriate algorithm (such as LDA, STM, CTM)
+7.  Seeding (so that one can reproduce the algorithm with the same selected parameters)
+8.  Running the selected algorithm using proprietary or open-source tools (such as RapidMiner, TopicModelingTool) or programming languages (such as R or Python)
+9.  Iterating the whole process till the algorithm fits the model
+:::
+
+::: footer
+:::
+
+## When to Use Topic Modeling
+
+::: incremental
+-   When you have a vast collection of text documents
+-   When the collection belongs to a specific subject
+-   When the collection has a similar type of documents, such as when all files in the collection are newspaper articles
+:::
+
+::: footer
+:::
+
+## When NOT to Use Topic Modeling
+
+::: incremental
+-   When you have a relatively small number of documents
+-   When you do not have any idea about your collection. In this case, clustering will be a better option than using topic modeling
+-   When the collection has a mixture of different types of documents, such as when the collection is composed of newspaper archives, journal articles, and ETDs
+:::
+
+::: footer
+:::
+
+## Available Tools and Packages
+
+::: columns
+::: {.column width="40%"}
+**Out-of-Box Tools**
+
+-   [Topic Modeling Tool](https://code.google.com/archive/p/topic-modeling-tool/)
+-   [RapidMiner](https://rapidminer.com/)
+-   [VyontTools](https://voyant-tools.org/)
+-   [DARIAH Topics Explorer](https://dariah-de.github.io/TopicsExplorer/)
+-   [ORANGE](https://orangedatamining.com/)
+-   [jsLDA](https://mimno.infosci.cornell.edu/jsLDA/jslda.html) ..... (more!)
+:::
+
+::: {.column width="30%"}
+**R Libraries**
+
+-   [quanteda](https://quanteda.io/)
+-   [stm](https://cran.r-project.org/web/packages/stm/vignettes/stmVignette.pdf)
+-   [tm](https://cran.r-project.org/web/packages/tm/tm.pdf)
+-   [lda](https://cran.r-project.org/web/packages/lda/lda.pdf)
+-   [topicmodels](https://cran.r-project.org/package=topicmodels)
+-   [text2vec](https://cran.r-project.org/web/packages/text2vec/index.html)
+-   [topicdoc](https://cran.r-project.org/web/packages/topicdoc/index.html)
+-   [BTM](https://cran.r-project.org/web/packages/BTM/index.html)
+-   [tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)
+-   [textmineR](https://cran.r-project.org/package=textmineR) .....(more!)
+:::
+
+::: {.column width="30%"}
+**Python Libraries**
+
+-   [bertopic](https://pypi.org/project/bertopic/)
+-   [corextopic](https://pypi.org/project/corextopic/)
+-   [scikit-learn](https://pypi.org/project/scikit-learn/)
+-   [corextopic](https://pypi.org/project/corextopic/)
+-   [genism](https://pypi.org/project/gensim/)
+-   [lda](https://pypi.org/project/lda/)
+-   [tethne](https://pythonhosted.org/tethne/)
+-   [dynamic_topic_modeling](https://pypi.org/project/dynamic-topic-modeling/) .....(more!)
+:::
+:::
+
+::: footer
+:::
+
+## Algorithms
+
+-   [Latent Dirchlet Allocation, 2003](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf)
+
+-   [Hierarchal Latent Dirichlet Allocation (hLDA), 2003](https://proceedings.neurips.cc/paper/2003/file/7b41bfa5085806dfa24b8c9de0ce567f-Paper.pdf)
+
+-   [Correlated Topic Model (CTM), 2005](https://proceedings.neurips.cc/paper_files/paper/2005/file/9e82757e9a1c12cb710ad680db11f6f1-Paper.pdf)
+
+-   [Dynamic Topic Model (DTM), 2006](https://mimno.infosci.cornell.edu/info6150/readings/dynamic_topic_models.pdf)
+
+-   [Correlation Explanation (CorEx), 2016](https://arxiv.org/abs/1611.10277)
+
+-   [Structural Topic Model (STM), 2019](https://cran.r-project.org/web/packages/stm/vignettes/stmVignette.pdf)
+
+-   [GuidedLDA, 2018](https://github.com/vi3k6i5/guidedlda)
+
+-   [LDA2Vec, 2019](https://aclanthology.org/N19-1414.pdf)
+
+-   [BERTopic, 2022](https://arxiv.org/abs/2203.05794) . . . more!
+
+::: footer
+:::
+
+## Topic Visualization
+
+-   Open questions:
+
+1.  How we use the output of the algorithm?
+2.  How should we visualize and navigate the topical structure?
+3.  What do the topics and document representations tell us about the texts?
+
+-   Output of topic modeling is not entirely human-readable, and one way to understand the results is through visualization
+-   "Topic models are meant to help interpret and understand texts, but it is still the researcher's job to do the actual interpreting and understanding" (Blei, 2012)
+-   "Be sure that you can understand the visualization as topic modeling tools are fallible" (Blei, 2012)
+
+::: footer
+:::
+
+# Case Studies
+
+::: panel-tabset
+## iArxiv
+
+::: columns
+::: {.column width="50%"}
+[![](img/18.png){fig-align="center" width="200%"}](https://iarxiv.org/)
+:::
+
+::: {.column width="50%"}
+![](img/17.png){fig-align="center" width="200%"}
+:::
+:::
+
+::: footer
+:::
+
+## CORD-19
+
+[![](img/19.png){fig-align="center" width="40%"}](https://strategicfutures.org/TopicMaps/COVID-19/cord19.html)
+
+::: footer
+:::
+
+## COVID-19
+
+[![](img/20.webp){fig-align="center" width="80%"}](https://engineering.tableau.com/visually-exploring-the-covid-19-research-literature-6ff2f70035cb)
+
+::: footer
+:::
+
+## Topic Hex-Maps
+
+[![](img/21.png){fig-align="center" width="70%"}](https://strategicfutures.org/hexmaps/ukeutopics/2017-01/app/)
+
+::: footer
+:::
+
+## COVID-19 Research
+
+[![Manika Lamba. (2022). Visualizing the Pace of COVID-19 Research: An Experimental Study of All India Institute of Medical Sciences (AIIMS), New Delhi. In SIS Annual Convention 2022, New Delhi, India.](img/12.png){fig-align="center" width="70%"}](https://manika-lamba.github.io/stm/)
+
+::: footer
+:::
+:::
+
+# Case Studies
+
+::: panel-tabset
+## ETD Dashboard
+
+[![Manika Lamba and Margam Madhusudhan. (2018). Metadata Tagging of Library and Information Science Theses:Shodhganga (2013-2017). In ETD2018 Taiwan Beyond the Boundaries of Rims and Oceans:Globalizing Knowledge with ETDs. Taipei,Taiwan.](img/13.png){fig-align="center" width="55%"}](https://manika-lamba.github.io/project/etds/)
+
+::: footer
+:::
+
+## LDA Vis
+
+[![](img/16.png){fig-align="center" width="60%"}](https://textmining-infopros.github.io/chapter4/#topic=1&lambda=1&term=)
+
+::: footer
+:::
+
+## Bar Graph
+
+![](img/14.png){fig-align="center" width="60%"}
+
+::: footer
+:::
+
+## Correlation Vis
+
+![](img/15.png){fig-align="center" width="40%"}
+
+::: footer
+:::
+:::
+
+## Topic models do not model topics (Shadrova, 2021)
+
+-   It operates from
+
+    -   relevantly unrealistic assumptions
+
+    -   is non-deterministic
+
+    -   cannot effectively be validated against a reasonable number of competing models
+
+    -   does not lock into a well-defined linguistic interface
+
+    -   does not scholarly model topics in the sense of themes or content (*not true anymore - BERTopic + LLM*)
+
+::: footer
+:::
+
+## Topic models do not model topics (Shadrova, 2021)
+
+-   Features are intrinsic make interpretation of its results prone to
+
+    -   **apophenia**: human tendency to perceive random state sets of elements as meaningful patterns
+    -   **confirmation bias**: human tendency to perceptually prefer patterns that are in alignment with pre-existing biases
+
+-   While partial validation of the statistical model is possible, a **conceptual validation** would require an extended triangulation with other methods and human ratings, and clarification of whether statistical distinctivity of lexical co-occurrence correlates with conceputal topics in any reliable way
+
+::: footer
+:::
+
+# Application of Topic Modeling in Libraries {background-color="#F7D9C4"}
+
+## Applications in Library
+
+::: panel-tabset
+## Data
+
+::: columns
+::: {.column width="50%"}
+-   Topic modeling has been applied to numerous resources, such as
+
+    -   annual meetings
+    -   diary
+    -   clinical notes
+    -   case reports
+    -   newspapers
+    -   journals
+    -   research articles
+    -   preprints
+:::
+
+::: {.column width="50%"}
+    - patents
+    - conferences
+    - chats
+    - online reviews
+    - MOOCs
+    - call for papers
+    - social media platforms
+    - RSS feed
+    - blogs
+    - open-ended survey responses
+    - emails
+    - digital libraries’ resources
+    - smart card data
+    - EZproxy daily log files
+    - data from library mobile apps
+    - virtual libraries’ resources
+    - reference questions
+    - library databases
+    - in-house journals
+    - institutional and digital repository resources
+    - theses and dissertations
+    - WebOPACs
+    - MOOC feedback, chats, and suggestions
+    - online library chats 
+    - forums
+    - emails
+    - syllabuses
+    - library’s social media platform accounts
+:::
+:::
+
+::: footer
+:::
+
+## Use Cases
+
+**1. Making Ontologies**: Mehler and Walitinger used topic modeling to build a Dewey Decimal Classification (DDC)-based topic classification model in digital libraries
+
+**2. Automatic Subject Classification**: They can be used in libraries to index subject terms for documents
+
+**3. Bibliometrics**: It can be used to study evolutionary pathways, citations, and trends to explore different hot and cold topics of research in a particular discipline
+
+**4. Altmetrics**: It can be used to know what people are talking about your library on social media and what topics they care about
+
+::: footer
+:::
+
+## Use Cases (Cont.)
+
+**5. Recommendation Service**: It can be used to recommend electronic resources based on the reading or search habits of the users
+
+::: columns
+::: {.column width="30%"}
+![](img/6.png){fig-align="center"}
+:::
+
+::: {.column width="70%"}
+![](img/7.png){fig-align="center"}
+:::
+:::
+
+::: footer
+:::
+
+## Use Cases (Cont.)
+
+**6. Organization and Management of Resources**: It can be used to do metadata tagging of the electronic resources, library's database, website, and repository resources
+
+**7. Better Searching and Information Retrieval of Resources**: In digital libraries, it can help in providing a fast searching experience to users and better information retrieval of electronic resources
+
+::: footer
+:::
+:::
+
+# Text Mining for Information Professionals (2022) {background-color="#F7D9C4"}
+
+::: columns
+::: {.column width="70%"}
+[![](img/slide1.png){fig-align="center"}](https://textmining-infopros.github.io/project/topic-modeling/)
+:::
+
+::: {.column width="30%"}
+[![](img/hex.png){fig-align="center"}](https://textmining-infopros.github.io/project/topic-modeling/)
+:::
+:::
+
+::: footer
+:::
+
+# Topic Modeling Demo in R {background-color="#F7D9C4"}
+
+## Data
+
+Dataset consists of nearly 2,500 research abstracts from six years worth of publications by University of North Carolina at Charlotte (UNCC) researchers in Social Science (across dept/college) and Computing & Informatics (the entire college CCI).
+
+::: footer
+:::
