@@ -28,7 +28,7 @@ Let's start by loading our packages and loading the dataset.
 
 library(quanteda); library(tidyverse); library(RColorBrewer); library(quanteda.textplots)
 
-dataset <- read_csv("https://raw.githubusercontent.com/manika-lamba/rladies-urmia/main/articles-sample.csv")
+dataset <- read_csv("https://raw.githubusercontent.com/manika-lamba/workshop-iim/main/demo/data.csv")
 
 #create corpus
 myCorpus <- corpus(dataset$Abstract)
