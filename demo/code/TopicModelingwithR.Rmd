@@ -2,7 +2,10 @@
 title: "Topic Modeling with R"
 author: "Dr. Manika Lamba"
 date: "August 26, 2024"
-output: learnr::tutorial
+output:
+   learnr::tutorial:
+    progressive: true
+    allow_skip: true
 runtime: shiny_prerendered
 ---
 
@@ -25,6 +28,7 @@ knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE)
 Let's start by loading our packages and loading the dataset.
 
 ```{r Load Data}
+
 library(quanteda); library(tidyverse); library(RColorBrewer); library(quanteda.textplots)
 
 dataset <- read_csv("https://raw.githubusercontent.com/manika-lamba/rladies-urmia/main/articles-sample.csv")
