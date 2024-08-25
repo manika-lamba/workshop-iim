@@ -2,10 +2,7 @@
 title: "Topic Modeling with R"
 author: "Dr. Manika Lamba"
 date: "August 26, 2024"
-output:
-   learnr::tutorial:
-    progressive: true
-    allow_skip: true
+output: learnr::tutorial
 runtime: shiny_prerendered
 ---
 
