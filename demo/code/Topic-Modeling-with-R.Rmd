@@ -1,6 +1,6 @@
 ---
 title: "Topic Modeling with R"
-author: "Manika Lamba"
+author: "Dr. Manika Lamba"
 date: "August 26, 2024"
 output: learnr::tutorial
 runtime: shiny_prerendered
@@ -12,11 +12,15 @@ knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE)
 
 ## Research Questions
 
-1.  **What are the topics?**
+1.  **What are the topics?**\
 
-2.  **What is the effect discipline (social sci. vs computing) & year has on the topics?*
+2.  **How are they interrelated?**\
 
-## [**Load the data**]{.underline}
+3.  **What is the effect discipline (social sci. vs computing) & year has on the topics?**\
+
+## Part 1 (LDA)
+
+[**Load the data**]{.underline}
 
 Let's start by loading our packages and loading the dataset.
 
