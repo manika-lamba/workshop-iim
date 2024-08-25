@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE)
 
 3.  **What is the effect discipline (social sci. vs computing) & year has on the topics?**\
 
-## Part 1 (LDA)
+## Part 1 
 
 [**Load the data**]{.underline}
 
@@ -209,7 +209,7 @@ write.csv(lda.terms,file=paste("topicstoterms",K,"TopicsToTerms.csv"))
 
 ```
 
-## Part 2 (CTM)
+## Part 2 
 
 [**Load the data**]{.underline}
 
@@ -377,7 +377,7 @@ Let's plot this using the `topicQuality` function.
 topicQuality(ctmFit, out$documents)
 ```
 
-## Part 3 (STM)
+## Part 3 
 
 [**Load the data**]{.underline}
 
