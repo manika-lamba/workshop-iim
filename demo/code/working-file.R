@@ -156,7 +156,48 @@ plot(stmFit, # model results
      text.cex = 1.2, # this increases the font by 20% (1.2 = 120%)
      width = 50) # this increases the width of the box
 
-# time
+topicNames <- labelTopics(stmFit, n = 5)
+topic <- data.frame(
+  TopicNumber = 1:k,
+  TopicProportions = colMeans(stmFit$theta))
+
+## Exploring the effects of the covariates: Subject
+Result <- plot(
+  prep,
+  "Subject",
+  method = "difference",
+  cov.value1 = "Social Science",
+  cov.value2 = "Computing",
+  verbose.labels = F,
+  ylab = "Expected Difference in Topic Probability by Subject (with 95% CI)",
+  xlab = "More Likely Computing                           Not Significant                       More Likely Social Science",
+  main = "Effect of Subject on Topic Prevelance for UNCC Research",
+  xlim = c(-0.1, 0.1)
+)
+
+## Let’s redo this plot but rank the topics.
+# order based on Expected Topic Proportion
+rank = order(unlist(Result$means))
+topicRnk <- topic[rank, ]
+
+plot(
+  prep,
+  "Subject",
+  method = "difference",
+  cov.value1 = "Social Science",
+  cov.value2 = "Computing",
+  verbose.labels = F,
+  topics = topicRnk$TopicNumber,
+  #labeltype = "custom",
+  #custom.labels  = apply(topicNames$prob, 1, function(x) paste0(x, collapse = " + ")),
+  ylab = "Expected Difference in Topic Probability by Subject (with 95% CI)",
+  xlab = "More Likely Computing                           Not Significant                       More Likely Social Science",
+  main = "Effect of Subject on Topic Prevelance for UNCC Research",
+  xlim = c(-0.1, 0.1)
+)
+
+
+# Effect of time
 par(mfrow = c(1, 1), mar = c(4, 4, 2, 2))
 i <- c(9, 18)
 plot(
@@ -170,3 +211,5 @@ plot(
   xlab = "Year",
   ylim = c(-0.01, 0.16)
 )
+
+
