@@ -41,7 +41,7 @@ textplot_wordcloud(dfm_tfidf(vdfm),  scale=c(3.5, .75), colors=brewer.pal(8, "Da
                    random.order = F, rot.per=0.1, max.words=250, main = "TF-IDF")
 
 
-## Excercise
+## Exercise
 ### Let's now create a dendogram to get an idea of how the words are clustering.
 
 ## Topic Modeling (LDA)
@@ -92,7 +92,7 @@ term
 
 # PART 2 (STM)
   
-# Remove the pre-created list of “generic” words to our original stop list
+# Remove the pre-created list of generic words to our original stop list
 
 library("quanteda.textstats")
 
@@ -136,7 +136,7 @@ k <- 40
 
 load("./stmFit.RData")
 
-## Exploring the results through stm’s visualizations
+## Exploring the results through stm visualizations
 
 plot(stmFit, 
      type = "summary", 
@@ -146,7 +146,7 @@ plot(stmFit,
      main = "UNCC Research Topics", 
      text.cex = 0.8)
 
-## Let’s examine one of the topics to interpret its meaning. Let’s consider topic 25 using the labels type.
+## Let's examine one of the topics to interpret its meaning. Let's consider topic 25 using the labels type.
 
 plot(stmFit, # model results
      type = "labels", # type of plot
@@ -175,7 +175,7 @@ Result <- plot(
   xlim = c(-0.1, 0.1)
 )
 
-## Let’s redo this plot but rank the topics.
+## Let's redo this plot but rank the topics.
 # order based on Expected Topic Proportion
 rank = order(unlist(Result$means))
 topicRnk <- topic[rank, ]
