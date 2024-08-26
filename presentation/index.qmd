@@ -28,7 +28,7 @@ editor: visual
 
 1.  Little Bit about Me
 2.  How to Organize Data in Today's World Using Machines
-3.  Topic Modeling & STM Algorithm
+3.  Topic Modeling 
 4.  Application of Topic Modeling in Libraries
 5.  Topic Modeling Demo in R
 6.  Coconut LibTool + Demo
@@ -135,7 +135,7 @@ World's Technological Capacity to Store, Communicate, and Compute Information
 ::: footer
 :::
 
-# Topic Modeling & STM Algorithm {background-color="#F7D9C4"}
+# Topic Modeling {background-color="#F7D9C4"}
 
 ::: footer
 :::
