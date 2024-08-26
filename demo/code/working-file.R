@@ -108,7 +108,7 @@ dfm <- dfm(myCorpus,
 
 vdfm <- dfm_trim(dfm, min_count = 10, min_docfreq = 5)
 
-## Let’s explore the top 50 words
+## Let's explore the top 50 words
 
 topfeatures(vdfm, n = 50)
 
