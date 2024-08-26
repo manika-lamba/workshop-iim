@@ -25,11 +25,11 @@ vdfm <- dfm_trim(dfm, min_count = 10, min_docfreq = 5)
 # min_count = remove words used less than x
 # min_docfreq = remove words used in less than x docs
 
-## Let’s explore the top 50 words.
+## Let's explore the top 50 words.
 
 topfeatures(vdfm, n = 50)
 
-## Let’s plot two word clouds
+## Let's plot two word clouds
 
 ### one with the raw term frequencies 
 
@@ -42,7 +42,7 @@ textplot_wordcloud(dfm_tfidf(vdfm),  scale=c(3.5, .75), colors=brewer.pal(8, "Da
 
 
 ## Excercise
-### Let’s now create a dendogram to get an idea of how the words are clustering.
+### Let's now create a dendogram to get an idea of how the words are clustering.
 
 ## Topic Modeling (LDA)
 
@@ -78,7 +78,7 @@ topicmodels2LDAvis <- function(x, ...){
 result <- LDA(dtm, 5)
 serVis(topicmodels2LDAvis(result))
 
-## Let’s view the topics
+## Let's view the topics
 
 term <- terms(lda, 10)
 term
