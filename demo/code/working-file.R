@@ -117,7 +117,7 @@ topfeatures(vdfm, n = 50)
 ### Plot two word clouds: one with the raw term frequencies and one with TF-IDF
 ## And observe if you see any difference from Part 1
 
-## Structured Topic Model (STM) with stm package
+## Structural Topic Model (STM) with stm package
 
 library(stm)
 

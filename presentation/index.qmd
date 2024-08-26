@@ -620,3 +620,49 @@ Dataset consists of nearly 2,500 research abstracts from six years worth of publ
 
 ::: footer
 :::
+
+# Coconut Libtool {background-color="#F7D9C4"}
+
+## Introduction
+
+::: columns
+::: {.column width="50%"}
+-   Coconut Libtool is a web-based application that utilizes cutting-edge Natural Language Processing (NLP) technologies to analyze bibliographic data
+-   Designed an open application specifically intended for textual analysis use by LIS professionals
+-   This application boasts a user-friendly design that eliminates the need for librarians to possess advanced computer skills or install any software on their devices
+:::
+
+::: {.column width="50%"}
+![<https://www.coconut-libtool.com/the-app>](img/coconut.png){fig-align="center"}
+:::
+:::
+
+:::footer
+[Accepted at ASIS&T 2024 Conference, Calgary (Canada)](https://www.conftool.org/asist2024/index.php?page=browseSessions&presentations=show&search=manika+lamba)
+:::
+
+## What Does it Do?
+
+![](img/coconut2.png){fig-align="center"}
+
+# Upcoming Books {background-color="#F7D9C4"}
+
+![](img/books.png){fig-align="center"}
+
+## Thank You!
+
+::: columns
+::: {.column width="50%"}
+`Important Links`
+
+- [Presentation Link](https://manika-lamba.github.io/workshop-iim/presentation/#/title-slide)
+- [GitHub Repo](https://github.com/manika-lamba/workshop-iim)
+- [R File](https://github.com/manika-lamba/workshop-iim/blob/main/demo/code/working-file.R)
+- [RMarkdown File](https://github.com/manika-lamba/workshop-iim/blob/main/demo/code/TopicModelingwithR.Rmd)
+:::
+
+
+::: {.column width="50%"}
+If you have any questions, reach out to me at `manika@ou.edu`!
+:::
+:::
