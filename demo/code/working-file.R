@@ -1,4 +1,5 @@
-# PART 1
+
+# PART 1 (LDA)
 
 ## Load Data
 
@@ -39,6 +40,10 @@ textplot_wordcloud(vdfm,  scale=c(3.5, .75), colors=brewer.pal(8, "Dark2"),
 textplot_wordcloud(dfm_tfidf(vdfm),  scale=c(3.5, .75), colors=brewer.pal(8, "Dark2"), 
                    random.order = F, rot.per=0.1, max.words=250, main = "TF-IDF")
 
+
+## Excercise
+### Let’s now create a dendogram to get an idea of how the words are clustering.
+
 ## Topic Modeling (LDA)
 
 library(topicmodels)
@@ -47,7 +52,7 @@ library(topicmodels)
 dtm <- convert(vdfm, to="topicmodels")
 
 # estimate LDA with K topics
-K <- 20
+K <- 20  
 lda <- LDA(dtm, k = K, method = "Gibbs", 
            control = list(verbose=25L, seed = 123, burnin = 100, iter = 500))
 
@@ -78,10 +83,14 @@ serVis(topicmodels2LDAvis(result))
 term <- terms(lda, 10)
 term
 
+## Exercise
+
+## Visualize the topics using ggplot2
+
 ##################################################
 ##################################################
 
-# PART 2
+# PART 2 (STM)
   
 # Remove the pre-created list of “generic” words to our original stop list
 
@@ -104,4 +113,60 @@ vdfm <- dfm_trim(dfm, min_count = 10, min_docfreq = 5)
 topfeatures(vdfm, n = 50)
 
 
+## Exercise
+### Plot two word clouds: one with the raw term frequencies and one with TF-IDF
+## And observe if you see any difference from Part 1
 
+## Structured Topic Model (STM) with stm package
+
+library(stm)
+
+# use quanteda converter to convert our Dfm
+stmdfm <- convert(dfm, to = "stm", docvars = docvars(myCorpus))
+
+## Unlike the topicmodels packages, stm has built in features to help analysts reduce sparse terms (minDoc or minCount)
+
+plotRemoved(stmdfm$documents, lower.thresh = seq(1, 100, by = 10))
+
+out <- prepDocuments(stmdfm$documents, stmdfm$vocab, stmdfm$meta, lower.thresh = 5)
+
+## Topic Modeling using STM
+
+k <- 40
+
+load("./stmFit.RData")
+
+## Exploring the results through stm’s visualizations
+
+plot(stmFit, 
+     type = "summary", 
+     xlim = c(0,.16), 
+     n = 5, 
+     labeltype = "prob",
+     main = "UNCC Research Topics", 
+     text.cex = 0.8)
+
+## Let’s examine one of the topics to interpret its meaning. Let’s consider topic 25 using the labels type.
+
+plot(stmFit, # model results
+     type = "labels", # type of plot
+     labeltype="prob", # label type for the words
+     n = 30, # number of words to show
+     topics = 25, # the topic we've selected
+     text.cex = 1.2, # this increases the font by 20% (1.2 = 120%)
+     width = 50) # this increases the width of the box
+
+# time
+par(mfrow = c(1, 1), mar = c(4, 4, 2, 2))
+i <- c(9, 18)
+plot(
+  prep,
+  "Year",
+  method = "continuous",
+  topics = i,
+  main = "Topics 9 and 18 by Year",
+  printlegend = T,
+  ylab = "Exp. Topic Prob",
+  xlab = "Year",
+  ylim = c(-0.01, 0.16)
+)
