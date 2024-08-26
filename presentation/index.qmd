@@ -28,7 +28,7 @@ editor: visual
 
 1.  Little Bit about Me
 2.  How to Organize Data in Today's World Using Machines
-3.  Topic Modeling 
+3.  Topic Modeling
 4.  Application of Topic Modeling in Libraries
 5.  Topic Modeling Demo in R
 6.  Coconut LibTool + Demo
@@ -70,7 +70,7 @@ World's Technological Capacity to Store, Communicate, and Compute Information
 [Hilbert, M., & López, P. (2011). The World's Technological Capacity to Store, Communicate, and Compute Information. Science, 332(6025), 60 --65. doi:10.1126/science.1200970](https://www.science.org/doi/10.1126/science.1200970)
 :::
 
-# Digital Trace Data
+# Digital Trace Data {.smaller}
 
 ::: columns
 ::: {.column width="50%"}
@@ -637,7 +637,7 @@ Dataset consists of nearly 2,500 research abstracts from six years worth of publ
 :::
 :::
 
-:::footer
+::: footer
 [Accepted at ASIS&T 2024 Conference, Calgary (Canada)](https://www.conftool.org/asist2024/index.php?page=browseSessions&presentations=show&search=manika+lamba)
 :::
 
@@ -655,12 +655,11 @@ Dataset consists of nearly 2,500 research abstracts from six years worth of publ
 ::: {.column width="50%"}
 `Important Links`
 
-- [Presentation Link](https://manika-lamba.github.io/workshop-iim/presentation/#/title-slide)
-- [GitHub Repo](https://github.com/manika-lamba/workshop-iim)
-- [R File](https://github.com/manika-lamba/workshop-iim/blob/main/demo/code/working-file.R)
-- [RMarkdown File](https://github.com/manika-lamba/workshop-iim/blob/main/demo/code/TopicModelingwithR.Rmd)
+-   [Presentation Link](https://manika-lamba.github.io/workshop-iim/presentation/#/title-slide)
+-   [GitHub Repo](https://github.com/manika-lamba/workshop-iim)
+-   [R File](https://github.com/manika-lamba/workshop-iim/blob/main/demo/code/working-file.R)
+-   [RMarkdown File](https://github.com/manika-lamba/workshop-iim/blob/main/demo/code/TopicModelingwithR.Rmd)
 :::
-
 
 ::: {.column width="50%"}
 If you have any questions, reach out to me at `manika@ou.edu`!
